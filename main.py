@@ -16,7 +16,6 @@ from torch.autograd import Variable
 batch_size = 100
 lr = 0.1
 mom = 0.5
-PATH = '/home/wataru/Uni/spring2018/4997//ZhuCnn/model/save'
 PATH = '/home/wataru/Uni/spring_2018/4997/CSCI4997_machine_learning/CSCI4997_CNN/model/save'
 
 
