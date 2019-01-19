@@ -16,6 +16,9 @@ from torch.autograd import Variable
 batch_size = 100
 lr = 0.1
 mom = 0.5
+PATH = '/home/wataru/Uni/spring2018/4997//ZhuCnn/model/save'
+PATH = '/home/wataru/Uni/spring_2018/4997/CSCI4997_machine_learning/CSCI4997_CNN/model/save'
+
 
 ##### Import Dataset #####
 
@@ -48,7 +51,9 @@ def train(epoch):
         #print(target.shape)
         optimizer.zero_grad()
         output = model(data)
-        #print("output:", output.shape)
+        print("output:", output.shape)
+        print('target: ', target.shape)
+        
         loss = criterion(output, target)
         loss.backward()
         optimizer.step()
@@ -56,6 +61,7 @@ def train(epoch):
             print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
             epoch, batch_idx * len(data), len(train_loader.dataset),
             100. * batch_idx / len(train_loader), loss.data[0]))
+ 
                     
 def test():
     model.eval() ##??
@@ -76,7 +82,9 @@ def test():
         test_loss, correct, len(test_loader.dataset),
         100. * correct / len(test_loader.dataset)))
     
-for epoch in range(1, 10):
+for epoch in range(1, 3):
     train(epoch)
     test()
+print('saving model...')
+torch.save(model.state_dict(), PATH)
                     

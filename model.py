@@ -1,6 +1,5 @@
 '''
 CNN model using pytorch
-Thanks to pytorch CNN tutorial: https://www.youtube.com/watch?v=LgFNRIFxuUo
 '''
 import torch
 import torch.nn as nn
@@ -14,8 +13,8 @@ class CNN(nn.Module):
         super(CNN, self).__init__()
 
         # Defining layers
-        self.conv1 = nn.Conv2d(1, 10, kernel_size=5)
-        self.conv2 = nn.Conv2d(10, 20, kernel_size=5)
+        self.conv1 = nn.Conv2d(1, 20, kernel_size=5)
+        self.conv2 = nn.Conv2d(20, 20, kernel_size=5)
         self.mp = nn.MaxPool2d(2)
         self.fc = nn.Linear(320, 10)
 
